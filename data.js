@@ -1,3 +1,4 @@
+// Exporting important variables and data for other modules to use
 export { BOOKS_PER_PAGE, authors, genres, books };
 
 const BOOKS_PER_PAGE = 36;
