@@ -17,6 +17,12 @@ const night = {
 };
 // Defining color schemes for day and night modes
 
+//this program impots necessary data, sets up pagination for displaying books, and defines color schemes for different modes to enhance the user's visual experience.
+
+
+
+
+
 // Creating a document fragment to add books to
 const fragment = document.createDocumentFragment();
 // Creating an empty document fragment to hold the book previews
@@ -58,6 +64,13 @@ for (let i = 0; i < extracted.length; i++) {
   // Appending the preview element to the document fragment
 }
 
+//This code creates a document fragment, which is an empty container to hold book previews. It also sets up initial indices to determine which subset of books to display. Then, it extracts a portion of the books based on the start and end indices.
+//Next, the code loops through the extracted books and creates a preview element for each book. The preview element is created as a <dl> (description list) element and contains various dataset attributes to store relevant book data. The HTML content of the preview element is set using template literals, including the book's image, title, and author.
+//Finally, each preview element is appended to the document fragment. This allows the previews to be added efficiently without directly modifying the actual HTML document.
+
+
+
+
 
 // Appending the book previews to the page
 const booklist1 = document.querySelector('[data-list-items]');
@@ -88,6 +101,14 @@ settingCancel.addEventListener('click', (event) => {
   document.querySelector("[data-settings-overlay]").style.display = "none";
 });
 // Selecting the element with the attribute '[data-settings-cancel]' and adding a 'click' event listener to it. When clicked, it hides the element with the attribute '[data-settings-overlay]'
+
+//This code adds functionality to the user interface. It appends book previews to a specific element on the page. It also adds event listeners to the search and settings buttons, allowing the display of search and settings overlays when clicked, and hiding them when the corresponding cancel buttons are clicked.
+
+
+
+
+
+
 
 // Code to display book details
 const detailsToggle = (event) => {
@@ -140,6 +161,14 @@ for (const genreId in genres) {
 }
 // Selecting the element with the attribute '[data-search-genres]' and creating 'option' elements for each genre in the 'genres' object. The 'option' elements are then appended to the 'genreSelect' element.
 
+//This code manages the display of book details, allows users to open and close the details overlay, handles book clicks to show corresponding details, and creates options for authors and genres in search filtering.
+
+
+
+
+
+
+
 // Change themes
 const dataSettingsTheme = document.querySelector('[data-settings-theme]');
 const saveButton = document.querySelector("body > dialog:nth-child(5) > div > div > button.overlay__button.overlay__button_primary");
@@ -162,6 +191,13 @@ saveButton.addEventListener('click', (event) => {
   document.querySelector("[data-settings-overlay]").style.display = "none";
 });
 // Selecting the element with the attribute '[data-settings-theme]' and the save button element. Adding a 'click' event listener to the save button. When clicked, it prevents the default form submission, checks the value of 'dataSettingsTheme', and sets the body colors accordingly. If the 'appoverlays' object is defined, it closes the settings overlay. Finally, it hides the element with the attribute '[data-settings-overlay]'.
+
+//This code enables users to change themes and handles the logic for applying the selected theme. It also closes the settings overlay and hides the settings panel after the theme is saved.
+
+
+
+
+
 
 
 const showMoreButton = document.querySelector('[data-list-button]');
@@ -218,6 +254,11 @@ showMoreButton.addEventListener('click', () => {
   showMoreButton.innerHTML = showMoreButtonText;
 });
 
+//This code implements a "Show More" button functionality that dynamically loads and displays additional book items. When the button is clicked, it updates the range of books to display, creates preview elements for each book, appends them to the page, and updates the button text to indicate the remaining number of items.
+
+
+
+
 
 
 /* Search */
@@ -242,6 +283,10 @@ dataSearchForm.addEventListener("submit", (event) => {
     const author = authorSelect.value; // get the value of the selected author
 
     const results = searchBooks(title, genre, author);
+
+    console.log(results);
+
+    console.log(`form title1=${title} genre1=${genre} author1=${author}`)
 
   dataSearchForm.reset();
  
@@ -268,6 +313,14 @@ function searchBooks(title, genre, author) {
         return matches;
     });
 }
+
+//This code implements a search functionality for filtering and displaying a list of books based on user input. When the search form is submitted, it retrieves the values of the title, genre, and author fields. Then, it calls the searchBooks function, passing the input values as parameters, to filter the books array and return the matching results. The displayBooksList function can be used to display the filtered books in a specified container.
+
+
+
+
+
+
 //The line return matches; is used to determine whether a book matches the search criteria or not, and it returns a boolean value indicating the result. If matches is true, it means the book satisfies all the search criteria, and if it's false, it means the book does not meet the search criteria.
 
 
